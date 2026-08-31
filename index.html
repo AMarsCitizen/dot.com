@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#f2efe8" />
+<title>Wahbi Hamza — Senior SAP P2P Consultant &amp; Software Engineer</title>
+<style>
+:root{
+  --paper:#f2efe8;
+  --ink:#171714;
+  --muted:#6f6c64;
+  --line:#ccc5b8;
+  --accent:#c75c33;
+  --soft:#e7e1d7;
+  --white:#faf8f3;
+  --max:1240px;
+  --gutter:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit}
+a{color:inherit;text-decoration:none}
+button{color:inherit}
+.wrap{width:min(calc(100% - (var(--gutter) * 2)),var(--max));margin:auto}
+
+/* Mobile-first navigation */
+nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(242,239,232,.94);backdrop-filter:blur(12px);z-index:20}
+.brand{font-weight:780;letter-spacing:-.03em;font-size:18px;white-space:nowrap}
+.navlinks{display:flex;gap:10px;align-items:center;font-size:14px}
+.navlinks>a:not(.pill){display:none}
+.pill{border:1px solid var(--ink);padding:9px 12px;border-radius:999px;color:var(--ink)!important;white-space:nowrap;font-size:12px}
+
+/* Hero */
+.hero{padding:58px 0 52px;display:grid;grid-template-columns:1fr;gap:34px}
+.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.16em;font-weight:760;color:var(--accent);margin-bottom:18px}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(49px,15.4vw,74px);line-height:.91;letter-spacing:-.055em;font-weight:500;margin:0;max-width:990px;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-side{display:grid;gap:24px;align-content:end}
+.hero-portrait{margin:0;width:min(58vw,210px)}
+.hero-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border:1px solid var(--line);background:var(--soft)}
+.hero-portrait figcaption{margin-top:8px;font-size:10px;line-height:1.4;color:var(--muted);letter-spacing:.02em}
+.hero-copy p{font-size:16px;color:#4f4b44;margin:0 0 22px;max-width:580px}
+.hero-actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.btn{background:var(--ink);color:var(--paper);padding:13px 17px;border-radius:3px;font-weight:680;font-size:14px}
+.textlink{font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:2px}
+
+/* Proof strip */
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr}
+.proof div{padding:18px 12px 18px 0;border-bottom:1px solid var(--line)}
+.proof div:nth-child(odd){border-right:1px solid var(--line)}
+.proof div:nth-child(even){padding-left:12px}
+.proof div:nth-last-child(-n+2){border-bottom:0}
+.proof strong{display:block;font-size:12px;margin-bottom:5px}
+.proof span{font-size:11px;color:var(--muted)}
+
+/* Shared sections */
+.section{padding:66px 0;border-bottom:1px solid var(--line);scroll-margin-top:82px}
+.section-head{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:35px}
+.kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:760}
+.section-head h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(39px,12vw,58px);line-height:1;letter-spacing:-.04em;font-weight:500;margin:0;text-wrap:balance}
+
+/* Case-study accordion */
+.work-list{border-top:1px solid var(--line)}
+.case{border-bottom:1px solid var(--line)}
+.case-trigger{appearance:none;width:100%;border:0;background:transparent;padding:24px 0;text-align:left;cursor:pointer;display:grid;grid-template-columns:34px minmax(0,1fr) 30px;gap:10px;align-items:start;transition:background .2s ease,padding .2s ease}
+.case-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.num{font-family:Georgia,serif;color:var(--accent);font-size:17px;padding-top:2px}
+.case-title h3{font-size:21px;line-height:1.17;letter-spacing:-.025em;margin:0 0 10px;text-wrap:balance}
+.meta{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-size:10px;border:1px solid var(--line);border-radius:999px;padding:4px 7px;color:var(--muted)}
+.case-summary{grid-column:2 / 4;margin:4px 0 0;color:var(--muted);font-size:13px;line-height:1.55;max-width:750px}
+.case-toggle{width:28px;height:28px;position:relative;margin-top:-1px;border:1px solid var(--line);border-radius:50%}
+.case-toggle::before,.case-toggle::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:1px;background:var(--ink);transform:translate(-50%,-50%);transition:transform .22s ease}
+.case-toggle::after{transform:translate(-50%,-50%) rotate(90deg)}
+.case-trigger[aria-expanded="true"] .case-toggle::after{transform:translate(-50%,-50%) rotate(0deg)}
+.case-trigger[aria-expanded="true"] .case-title h3{color:var(--accent)}
+
+.case-panel{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .34s cubic-bezier(.2,.75,.25,1),opacity .25s ease}
+.case-panel.is-open{grid-template-rows:1fr;opacity:1}
+.case-panel-inner{overflow:hidden}
+.case-content{padding:0 0 30px 44px}
+.case-intro{font-family:Georgia,"Times New Roman",serif;font-size:23px;line-height:1.22;letter-spacing:-.025em;margin:1px 0 25px;max-width:760px}
+.detail-grid{display:grid;grid-template-columns:1fr;gap:22px;border-top:1px solid var(--line);padding-top:22px}
+.detail-block h4{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--accent);margin:0 0 8px}
+.detail-block p{font-size:13px;line-height:1.6;color:var(--muted);margin:0;max-width:560px}
+.detail-block ul{list-style:none;padding:0;margin:0;display:grid;gap:7px;color:var(--muted);font-size:13px;line-height:1.5}
+.detail-block li{position:relative;padding-left:14px}
+.detail-block li::before{content:"—";position:absolute;left:0;color:var(--accent)}
+.case-foot{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:24px;padding-top:18px}
+.case-note{font-size:11px;color:var(--muted);max-width:640px}
+.case-link{font-size:13px;border-bottom:1px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+
+/* Expertise */
+.expertise{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+.expert{padding:27px 0;border-bottom:1px solid var(--line)}
+.expert:last-child{border-bottom:0}
+.expert h3{font-family:Georgia,serif;font-size:28px;font-weight:500;margin:0 0 9px;letter-spacing:-.03em}
+.expert p{max-width:530px;margin:0;color:var(--muted);font-size:14px}
+
+/* Timeline */
+.timeline{display:grid;grid-template-columns:1fr}
+.time{padding:24px 0 3px;border-top:1px solid var(--line);font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.role{padding:6px 0 28px}
+.role h3{font-size:19px;margin:0 0 6px;letter-spacing:-.015em}
+.role p{margin:0;color:var(--muted);font-size:14px}
+
+/* CTA / footer */
+.cta{padding:68px 0 76px;display:grid;grid-template-columns:1fr;gap:34px}
+.cta h2{font-family:Georgia,serif;font-size:clamp(44px,13vw,64px);line-height:.96;letter-spacing:-.05em;font-weight:500;margin:0;text-wrap:balance}
+.cta-side{display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:15px}
+.cta-side p{color:var(--muted);margin:0 0 5px;font-size:14px}
+.email{font-size:17px;border-bottom:1px solid var(--ink);overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:23px 0 30px;font-size:11px;color:var(--muted);display:flex;gap:10px;flex-direction:column}
+
+/* Tablet */
+@media (min-width:680px){
+  :root{--gutter:24px}
+  .pill{padding:10px 15px;font-size:13px}
+  .hero{padding:70px 0 60px}
+  .hero h1{font-size:clamp(68px,10vw,92px)}
+  .hero-portrait{width:220px}
+  .proof{grid-template-columns:repeat(4,1fr)}
+  .proof div,.proof div:nth-child(even){padding:20px 16px;border-bottom:0;border-right:1px solid var(--line)}
+  .proof div:first-child{padding-left:0}
+  .proof div:last-child{border-right:0}
+  .section{padding:78px 0}
+  .case-trigger{grid-template-columns:50px 1.25fr 1fr 32px;gap:20px;padding:28px 0}
+  .case-summary{grid-column:auto;margin:1px 0 0}
+  .case-content{padding-left:70px;padding-bottom:34px}
+  .detail-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 38px}
+  .expertise{grid-template-columns:repeat(2,1fr)}
+  .expert{padding:31px 30px 34px 0}
+  .expert:nth-child(odd){border-right:1px solid var(--line)}
+  .expert:nth-child(even){padding-left:30px}
+  .expert:nth-last-child(-n+2){border-bottom:0}
+  .timeline{grid-template-columns:170px 1fr}
+  .time{padding:25px 0;border-top:1px solid var(--line);text-transform:none;letter-spacing:0;color:var(--muted)}
+  .role{padding:25px 0;border-top:1px solid var(--line)}
+  .cta{padding:84px 0 92px}
+  footer{flex-direction:row;justify-content:space-between;gap:20px}
+}
+
+/* Desktop */
+@media (min-width:900px){
+  :root{--gutter:20px}
+  nav{height:86px}
+  .brand{font-size:20px}
+  .navlinks{gap:28px}
+  .navlinks>a:not(.pill){display:inline;color:var(--muted)}
+  .navlinks>a:not(.pill):hover{color:var(--ink)}
+  .hero{padding:88px 0 68px;grid-template-columns:1.65fr .75fr;gap:72px;align-items:end}
+  .hero h1{font-size:clamp(72px,7.1vw,108px)}
+  .hero-side{gap:22px}
+  .hero-portrait{width:230px}
+  .hero-copy{padding-bottom:8px}
+  .hero-copy p{font-size:17px}
+  .section{padding:92px 0;scroll-margin-top:94px}
+  .section-head{grid-template-columns:1fr 2fr;gap:48px;margin-bottom:46px}
+  .section-head h2{font-size:clamp(46px,5vw,70px)}
+  .case-trigger{grid-template-columns:66px 1.25fr 1fr 32px;gap:24px;padding:30px 0}
+  .case-trigger:hover{padding-left:12px;background:rgba(255,255,255,.24)}
+  .case-title h3{font-size:24px}
+  .case-summary{font-size:14px}
+  .case-content{padding-left:90px;padding-bottom:40px;padding-right:56px}
+  .case-intro{font-size:27px;max-width:850px}
+  .detail-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+  .detail-block p,.detail-block ul{font-size:13px}
+  .expert{padding:34px 34px 38px 0}
+  .expert:nth-child(even){padding-left:34px}
+  .expert h3{font-size:30px}
+  .timeline{grid-template-columns:210px 1fr}
+  .role h3{font-size:20px}
+  .cta{padding:96px 0 110px;grid-template-columns:1.4fr .8fr;gap:70px}
+  .cta h2{font-size:clamp(56px,6vw,86px)}
+  .email{font-size:19px}
+  footer{padding-bottom:34px;font-size:12px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Primary navigation">
+  <a class="brand" href="#top">Wahbi Hamza</a>
+  <div class="navlinks"><a href="#work">Case studies</a><a href="#expertise">Expertise</a><a href="#experience">Experience</a><a class="pill" href="mailto:wahbi.workmail@gmail.com">Start a conversation ↗</a></div>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div><div class="eyebrow">P2P · Procurement Business Analysis · SAP Ariba</div><h1>Making complex procurement systems <em>work clearly.</em></h1></div>
+  <div class="hero-side">
+    <figure class="hero-portrait"><img src="assets/wahbi-hamza.webp" alt="Portrait of Wahbi Hamza" width="960" height="1200" loading="eager" fetchpriority="high"/><figcaption>Wahbi Hamza · Senior SAP P2P Consultant &amp; Software Engineer</figcaption></figure>
+    <div class="hero-copy"><p>Software engineer and Senior SAP P2P Consultant focused on procurement business analysis — turning stakeholder needs into clear processes, functional specifications, tested workflows, and reliable ERP integrations.</p><div class="hero-actions"><a class="btn" href="#work">View selected work</a><a class="textlink" href="#experience">See experience</a></div></div>
+  </div>
+</section>
+
+<section class="proof" aria-label="Focus areas">
+  <div><strong>Procurement transformation</strong><span>P2P · S2C · Supplier processes</span></div>
+  <div><strong>Enterprise systems</strong><span>SAP Ariba · SAP ECC · S/4HANA readiness</span></div>
+  <div><strong>Delivery bridge</strong><span>Business analysis · Functional · Technical</span></div>
+  <div><strong>Engineering edge</strong><span>Data flows · APIs · Python · Automation</span></div>
+</section>
+
+<section class="section" id="work">
+  <div class="section-head"><div class="kicker">01 — Selected work</div><h2>Case studies first.<br/>Proof before biography.</h2></div>
+  <div class="work-list" data-accordion>
+    <article class="case" id="case-innovx">
+      <button class="case-trigger" type="button" aria-expanded="false" aria-controls="panel-innovx">
+        <span class="num">01</span>
+        <span class="case-title"><h3>SAP Ariba Source-to-Pay Transformation — INNOVX</h3><span class="meta"><span class="tag">SAP Ariba</span><span class="tag">P2P</span><span class="tag">S2C</span><span class="tag">Sourcing</span><span class="tag">ERP Integration</span></span></span>
+        <span class="case-summary">Digitalizing procurement from sourcing and supplier processes to purchasing workflows, approvals, compliance and ERP integration.</span>
+        <span class="case-toggle" aria-hidden="true"></span>
+      </button>
+      <div class="case-panel" id="panel-innovx" role="region" aria-hidden="true">
+        <div class="case-panel-inner"><div class="case-content">
+          <p class="case-intro">A group-wide procurement transformation centered on SAP Ariba, process standardization, supplier collaboration and reliable end-to-end ERP integration.</p>
+          <div class="detail-grid">
+            <div class="detail-block"><h4>Project context</h4><p>INNOVX launched SAP Ariba to digitalize and standardize procurement and sourcing across the group, improve supplier collaboration and traceability, harmonize Procure-to-Pay processes, and connect Ariba reliably with the existing ERP landscape.</p></div>
+            <div class="detail-block"><h4>Key objectives</h4><ul><li>Digitalize procurement and sourcing</li><li>Structure supplier collaboration and compliance</li><li>Harmonize P2P across entities</li><li>Improve approvals and procurement workflows</li><li>Maintain reliable purchasing, supplier and financial data flows</li></ul></div>
+            <div class="detail-block"><h4>My contribution</h4><ul><li>Business requirements and process analysis</li><li>Procurement workflow and functional specification support</li><li>Business ↔ technical coordination</li><li>SIT / UAT, user enablement and go-live support</li><li>ERP integration and data-flow follow-up</li></ul></div>
+            <div class="detail-block"><h4>Functional &amp; systems scope</h4><ul><li>SAP Ariba · P2P · S2C</li><li>Sourcing and supplier processes</li><li>Approval / validation workflows</li><li>Procurement compliance</li><li>ERP integration · supplier &amp; purchasing data</li></ul></div>
+          </div>
+          <div class="case-foot"><span class="case-note">Role lens: procurement transformation, business analysis, testing, adoption and ERP integration.</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="case" id="case-winxo">
+      <button class="case-trigger" type="button" aria-expanded="false" aria-controls="panel-winxo">
+        <span class="num">02</span>
+        <span class="case-title"><h3>SAP ECC Assessment &amp; S/4HANA Migration Readiness — Winxo</h3><span class="meta"><span class="tag">SAP ECC</span><span class="tag">S/4HANA</span><span class="tag">Business Analysis</span><span class="tag">Fit / Gap</span></span></span>
+        <span class="case-summary">Assessing current processes, identifying business and system gaps, and turning them into a prioritized roadmap and requirements baseline.</span>
+        <span class="case-toggle" aria-hidden="true"></span>
+      </button>
+      <div class="case-panel" id="panel-winxo" role="region" aria-hidden="true">
+        <div class="case-panel-inner"><div class="case-content">
+          <p class="case-intro">Preparing an SAP ECC environment for a future S/4HANA transformation by making the current state, business gaps and future requirements explicit.</p>
+          <div class="detail-grid">
+            <div class="detail-block"><h4>Project context</h4><p>Winxo needed a structured understanding of its existing SAP ECC environment before moving toward S/4HANA. The engagement combined functional, technical and organizational assessment with roadmap and requirements preparation.</p></div>
+            <div class="detail-block"><h4>Key objectives</h4><ul><li>Assess the existing SAP ECC landscape</li><li>Identify functional, technical and organizational gaps</li><li>Prioritize what needs to change before migration</li><li>Define a clear S/4HANA roadmap</li><li>Prepare an actionable requirements specification</li></ul></div>
+            <div class="detail-block"><h4>My contribution</h4><ul><li>Stakeholder needs and business-process analysis</li><li>Current-state / future-state clarification</li><li>Fit / gap and requirement structuring</li><li>Functional requirements and documentation</li><li>Business ↔ implementation-team alignment</li></ul></div>
+            <div class="detail-block"><h4>Functional &amp; systems scope</h4><ul><li>SAP ECC · S/4HANA readiness</li><li>Requirements gathering</li><li>Process assessment · fit / gap</li><li>Migration roadmap</li><li>Requirements specification / cahier des charges</li></ul></div>
+          </div>
+          <div class="case-foot"><span class="case-note">Focus: business analysis and migration readiness — not deep S/4HANA configuration.</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="case" id="case-mta">
+      <button class="case-trigger" type="button" aria-expanded="false" aria-controls="panel-mta">
+        <span class="num">03</span>
+        <span class="case-title"><h3>SAP ECC Core Model Rollout — MTA Automotive</h3><span class="meta"><span class="tag">SAP ECC</span><span class="tag">P2P</span><span class="tag">Automotive</span><span class="tag">Localization</span></span></span>
+        <span class="case-summary">Adapting a global SAP core model to a Moroccan automotive operation while keeping procurement and operational requirements aligned with group standards.</span>
+        <span class="case-toggle" aria-hidden="true"></span>
+      </button>
+      <div class="case-panel" id="panel-mta" role="region" aria-hidden="true">
+        <div class="case-panel-inner"><div class="case-content">
+          <p class="case-intro">A core-model rollout where local procurement and operational needs had to fit the group's SAP standards without losing the realities of a manufacturing environment.</p>
+          <div class="detail-grid">
+            <div class="detail-block"><h4>Project context</h4><p>MTA Automotive Solutions rolled out its headquarters SAP ECC core model to the Kénitra subsidiary, with process harmonization, Moroccan localization and production / logistics cost-control requirements.</p></div>
+            <div class="detail-block"><h4>Key objectives</h4><ul><li>Deploy the headquarters SAP ECC core model</li><li>Harmonize local and group processes</li><li>Address Moroccan fiscal and legal requirements</li><li>Support procurement and operational process consistency</li><li>Strengthen production / logistics cost visibility</li></ul></div>
+            <div class="detail-block"><h4>My contribution</h4><ul><li>Support business workshops and requirements clarification</li><li>Structure P2P / procurement process needs</li><li>Document local-vs-core-model differences</li><li>Testing, validation and issue follow-up</li><li>Business-user and SAP-team coordination</li></ul></div>
+            <div class="detail-block"><h4>Functional &amp; systems scope</h4><ul><li>SAP ECC · core-model rollout</li><li>P2P / purchasing process touchpoints</li><li>Supplier, material and logistics dependencies</li><li>Process mapping · fit / gap</li><li>Moroccan localization</li></ul></div>
+          </div>
+          <div class="case-foot"><span class="case-note">The scope reflects procurement and BA responsibilities; module configuration expertise is not implied.</span></div>
+        </div></div>
+      </div>
+    </article>
+
+    <article class="case" id="case-zine">
+      <button class="case-trigger" type="button" aria-expanded="false" aria-controls="panel-zine">
+        <span class="num">04</span>
+        <span class="case-title"><h3>SAP ECC Rollout, Stabilization &amp; Continuous Improvement — Groupe Zine</h3><span class="meta"><span class="tag">SAP ECC</span><span class="tag">P2P</span><span class="tag">Workflow</span><span class="tag">Functional Support</span></span></span>
+        <span class="case-summary">From new-entity rollout to post-go-live support: requirements, incidents, workflows, testing, data quality and continuous process improvement.</span>
+        <span class="case-toggle" aria-hidden="true"></span>
+      </button>
+      <div class="case-panel" id="panel-zine" role="region" aria-hidden="true">
+        <div class="case-panel-inner"><div class="case-content">
+          <p class="case-intro">Supporting ERP processes beyond go-live: understand the business issue, trace the process and data, translate it into a clear requirement, then validate the change with users.</p>
+          <div class="detail-grid">
+            <div class="detail-block"><h4>Project context</h4><p>Groupe Zine engagements covered the rollout of SAP ECC for the new BMZ industrial subsidiary, followed by stabilization, functional support and continuous evolution as business requirements changed.</p></div>
+            <div class="detail-block"><h4>Key objectives</h4><ul><li>Establish structured ERP processes from go-live</li><li>Align the new entity with group standards</li><li>Secure traceability across operational flows</li><li>Stabilize post-go-live processes</li><li>Evolve workflows and processes with business needs</li></ul></div>
+            <div class="detail-block"><h4>My contribution</h4><ul><li>P2P functional support and requirements analysis</li><li>Functional specifications and change requests</li><li>SIT / UAT and user validation</li><li>Incident analysis and continuous improvement</li><li>Transaction / data-quality monitoring and issue follow-up</li></ul></div>
+            <div class="detail-block"><h4>Functional &amp; systems scope</h4><ul><li>SAP ECC · P2P-related processes</li><li>Purchasing and approval workflows</li><li>Functional support · L1 / L2 context</li><li>Process / transaction monitoring</li><li>Data-quality and functional / technical troubleshooting</li></ul></div>
+          </div>
+          <div class="case-foot"><span class="case-note">Focus: procurement business analysis, user support, process quality and continuous improvement.</span></div>
+        </div></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="expertise"><div class="section-head"><div class="kicker">02 — Work areas</div><h2>Built for the messy middle between procurement and systems.</h2></div>
+<div class="expertise"><div class="expert"><h3>Procurement &amp; P2P Transformation</h3><p>P2P, S2C, sourcing, supplier processes, purchasing workflows, approvals, compliance and end-to-end procurement process design.</p></div><div class="expert"><h3>Business Analysis &amp; AMOA</h3><p>Workshops, requirements gathering, process mapping, fit / gap analysis, functional specifications, SIT/UAT, training and stakeholder coordination.</p></div><div class="expert"><h3>ERP Integration &amp; Data</h3><p>SAP Ariba / ECC / S/4HANA contexts, integration touchpoints, procurement data flows, transaction monitoring, data quality and functional / technical troubleshooting.</p></div><div class="expert"><h3>Software Engineering Edge</h3><p>Python, APIs, automation and analytical thinking used selectively to understand system behavior, reduce repetitive work and make ERP processes easier to operate.</p></div></div></section>
+
+<section class="section" id="experience"><div class="section-head"><div class="kicker">03 — Experience</div><h2>A progression from SAP delivery support to senior P2P ownership.</h2></div>
+<div class="timeline"><div class="time">Jun 2024 — Present</div><div class="role"><h3>Senior SAP P2P Consultant — ConSAP</h3><p>End-to-end P2P implementation and optimization; business ↔ technical coordination; procurement workflows for validation, approvals and compliance; S2C contribution across sourcing, contracts and supplier processes; UAT, training, go-live support and ERP integration follow-up.</p></div><div class="time">Sep 2022 — Feb 2024</div><div class="role"><h3>Confirmed SAP P2P Consultant — ConSAP</h3><p>Functional support in SAP P2P contexts (MM / Ariba); business-requirement analysis; functional specifications; SIT/UAT; incident management and continuous improvement.</p></div><div class="time">Sep 2020 — Aug 2022</div><div class="role"><h3>Associate SAP Consultant — ConSAP</h3><p>P2P and S2C project support through workshops, testing, documentation and L1/L2 support; transaction / data-quality monitoring and procurement-process structuring.</p></div></div></section>
+
+<section class="cta"><h2>Need someone who can bridge procurement, business requirements and SAP delivery?</h2><div class="cta-side"><p>Based in Casablanca / Rabat / Hybrid, Morocco.</p><a class="email" href="mailto:wahbi.workmail@gmail.com">wahbi.workmail@gmail.com ↗</a></div></section>
+</main>
+
+<footer><span>Wahbi Hamza · Senior SAP P2P Consultant &amp; Software Engineer</span><span>Procurement · Business Analysis · ERP Integration</span></footer>
+</div>
+<script>
+(() => {
+  const triggers = [...document.querySelectorAll('.case-trigger')];
+
+  function setOpen(trigger, open, updateHash = false) {
+    const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+    trigger.setAttribute('aria-expanded', String(open));
+    panel.classList.toggle('is-open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+    if (open && updateHash) history.replaceState(null, '', '#' + trigger.closest('.case').id);
+  }
+
+  triggers.forEach((trigger, index) => {
+    const title = trigger.querySelector('h3');
+    if (title) title.id = `case-title-${index + 1}`;
+    const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+    if (panel && title) panel.setAttribute('aria-labelledby', title.id);
+
+    trigger.addEventListener('click', () => {
+      const willOpen = trigger.getAttribute('aria-expanded') !== 'true';
+      triggers.forEach(other => { if (other !== trigger) setOpen(other, false); });
+      setOpen(trigger, willOpen, willOpen);
+    });
+  });
+
+  const hashCase = document.querySelector(location.hash && location.hash.startsWith('#case-') ? location.hash : ':not(*)');
+  if (hashCase) {
+    const trigger = hashCase.querySelector('.case-trigger');
+    if (trigger) setOpen(trigger, true);
+  }
+})();
+</script>
+</body>
+</html>
